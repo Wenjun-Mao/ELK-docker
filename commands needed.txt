@@ -1,0 +1,14 @@
+# start the containers
+docker-compose up -d
+
+
+# To get Enrollment token:
+docker exec -it elasticsearch /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
+# To get Verification Code:
+docker exec -it kibana /usr/share/kibana/bin/kibana-verification-code
+
+# reset passwork for user "elastic"
+docker exec -it elasticsearch /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+
+# new password
